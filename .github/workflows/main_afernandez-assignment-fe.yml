@@ -25,7 +25,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build
+          npm run build --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -56,7 +56,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'afernandez-assignment-fe-pr'
-          package: .
 
   deploy-dev:
     if: github.ref == 'refs/heads/dev'
@@ -81,4 +80,3 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'afernandez-assignment-fe-dv'
-          package: .
