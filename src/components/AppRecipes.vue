@@ -17,7 +17,7 @@
             class="btn btn-success btn-sm"
             v-b-modal.recipe-modal
           >
-            Create Account
+            Create Recipe
           </button>
           <br /><br />
           <table class="table table-hover">
@@ -270,7 +270,7 @@ export default {
 
     //GET function
     RESTgetRecipes() {
-      const path = `${process.env.VUE_APP_ROOT_URL}/recipes`;
+      const path = `${process.env.VUE_APP_ROOT_URL}/`;
       axios
         .get(path)
         .then((response) => {
@@ -283,7 +283,7 @@ export default {
 
     // POST function
     RESTcreateRecipe(payload) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/recipes`;
+      const path = `${process.env.VUE_APP_ROOT_URL}/`;
       axios
         .post(path, payload)
         .then((response) => {
@@ -305,7 +305,7 @@ export default {
 
     // Update function
     RESTupdateRecipe(payload, recipeId) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/recipes/${recipeId}`;
+      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
       axios
         .put(path, payload)
         .then((response) => {
@@ -327,7 +327,7 @@ export default {
 
     // Delete account
     RESTdeleteRecipe(recipeId) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/recipes/${recipeId}`;
+      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
       axios
         .delete(path)
         .then((response) => {
