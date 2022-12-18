@@ -125,7 +125,7 @@
             <b-form-input
               id="form-rating-input"
               type="number"
-              v-model="createRecipeForm.rating"
+              v-model.number="createRecipeForm.rating"
               placeholder="Recipe Rating"
               required
             >
@@ -208,7 +208,7 @@
             <b-form-input
               id="form-edit-rating-input"
               type="number"
-              v-model="editRecipeForm.rating"
+              v-model.number="editRecipeForm.rating"
               placeholder="Recipe Rating"
               required
             >
