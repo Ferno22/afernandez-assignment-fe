@@ -279,10 +279,10 @@ export default {
 
     //GET function
     RESTgetRecipes() {
-      if (process.env.name === "development") {
+      if (process.env.name === "Development") {
         const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
       } else
-      if (process.env.name === "production") {
+      if (process.env.name === "Production") {
         const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
       }
       axios
@@ -297,10 +297,10 @@ export default {
 
     // POST function
     RESTcreateRecipe(payload) {
-      if (process.env.name === "development") {
+      if (process.env.name === "Development") {
         const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
       } else
-      if (process.env.name === "production") {
+      if (process.env.name === "Production") {
         const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
       }
       axios
@@ -324,10 +324,10 @@ export default {
 
     // Update function
     RESTupdateRecipe(payload, recipeId) {
-      if (process.env.name === "development") {
+      if (process.env.name === "Development") {
         const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
       } else
-      if (process.env.name === "production") {
+      if (process.env.name === "Production") {
         const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
       }
       axios
@@ -351,10 +351,10 @@ export default {
 
     // Delete account
     RESTdeleteRecipe(recipeId) {
-      if (process.env.name === "development") {
+      if (process.env.name === "Development") {
         const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
       }
-      else if (process.env.name === "production") {
+      else if (process.env.name === "Production") {
         const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
       }
       axios
