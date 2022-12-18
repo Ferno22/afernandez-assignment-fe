@@ -38,7 +38,7 @@
                 <td>{{ recipe.steps }}</td>
                 <td>{{ recipe.rating }}</td>
                 <td>
-                  <input type="checkbox" class="checkbox" v-model="recipe.favorite" value="true" unchecked-value="false" />
+                  <input type="checkbox" class="checkbox" v-model="recipe.favorite" />
                 </td>
                 <td>
                   <div class="btn-group" role="group">
@@ -140,8 +140,6 @@
               id="form-favorite-input"
               type="checkbox"
               v-model="createRecipeForm.favorite"
-              value="true"
-              unchecked-value="false"
               required
             >
             </b-form-checkbox>
@@ -225,8 +223,6 @@
               id="form-edit-favorite-input"
               type="checkbox"
               v-model="editRecipeForm.favorite"
-              value=true
-              unchecked-value=false
               required
             >
             </b-form-checkbox>
