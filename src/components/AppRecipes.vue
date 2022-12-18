@@ -279,7 +279,12 @@ export default {
 
     //GET function
     RESTgetRecipes() {
-      const path = `${process.env.VUE_APP_ROOT_URL}/`;
+      if (process.env.name === "development") {
+        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
+      } else
+      if (process.env.name === "production") {
+        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
+      }
       axios
         .get(path)
         .then((response) => {
@@ -292,7 +297,12 @@ export default {
 
     // POST function
     RESTcreateRecipe(payload) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/`;
+      if (process.env.name === "development") {
+        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
+      } else
+      if (process.env.name === "production") {
+        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
+      }
       axios
         .post(path, payload)
         .then((response) => {
@@ -314,7 +324,12 @@ export default {
 
     // Update function
     RESTupdateRecipe(payload, recipeId) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
+      if (process.env.name === "development") {
+        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
+      } else
+      if (process.env.name === "production") {
+        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
+      }
       axios
         .put(path, payload)
         .then((response) => {
@@ -336,7 +351,12 @@ export default {
 
     // Delete account
     RESTdeleteRecipe(recipeId) {
-      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
+      if (process.env.name === "development") {
+        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
+      }
+      else if (process.env.name === "production") {
+        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
+      }
       axios
         .delete(path)
         .then((response) => {

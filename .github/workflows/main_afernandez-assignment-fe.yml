@@ -39,7 +39,7 @@ jobs:
   deploy-prod:
     if: github.ref == 'refs/heads/main'
     env:
-      NODE_ENV: main
+      NODE_ENV: production
       VUE_APP_ROOT_URL: https://afernandez-assignment-be-pr.azurewebsites.net/
     runs-on: ubuntu-latest
     needs: build
