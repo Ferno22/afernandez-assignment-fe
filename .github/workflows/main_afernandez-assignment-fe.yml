@@ -12,6 +12,7 @@ on:
 
 jobs:
   build-dev:
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
 
     steps:
@@ -36,6 +37,7 @@ jobs:
           name: node-app
           path: release.zip
   build-prod:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
