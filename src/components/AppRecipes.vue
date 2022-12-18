@@ -281,18 +281,26 @@ export default {
     RESTgetRecipes() {
       if (process.env.name === "Development") {
         const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
+        axios
+          .get(path)
+          .then((response) => {
+            this.recipes = response.data.recipes;
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else
       if (process.env.name === "Production") {
         const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
+        axios
+          .get(path)
+          .then((response) => {
+            this.recipes = response.data.recipes;
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
-      axios
-        .get(path)
-        .then((response) => {
-          this.recipes = response.data.recipes;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
     },
 
     // POST function
