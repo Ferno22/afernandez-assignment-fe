@@ -38,15 +38,7 @@
                 <td>{{ recipe.steps }}</td>
                 <td>{{ recipe.rating }}</td>
                 <td>
-                  <b-form-checkbox
-                    id="form-favorite-input"
-                    type="checkbox"
-                    v-model="recipe.favorite"
-                    value=true
-                    unchecked-value=false
-                    required
-                  >
-                  </b-form-checkbox>
+                  <input type="checkbox" class="checkbox" v-model="recipe.favorite"/>
                 </td>
                 <td>
                   <div class="btn-group" role="group">
@@ -258,14 +250,15 @@ export default {
         name: "",
         ingredients: "",
         steps: "",
-        rating: "",
+        rating: 1,
         favorite: false,
       },
       editRecipeForm: {
+        id: "",
         name: "",
         ingredients: "",
         steps: "",
-        rating: "",
+        rating: 1,
         favorite: false,
       },
       showMessage: false,
@@ -279,38 +272,20 @@ export default {
 
     //GET function
     RESTgetRecipes() {
-      if (process.env.name === "Development") {
-        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
-        axios
-          .get(path)
-          .then((response) => {
-            this.recipes = response.data.recipes;
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      } else
-      if (process.env.name === "Production") {
-        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
-        axios
-          .get(path)
-          .then((response) => {
-            this.recipes = response.data.recipes;
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }
+      const path = `${process.env.VUE_APP_ROOT_URL}/`;
+      axios
+        .get(path)
+        .then((response) => {
+          this.recipes = response.data.recipes;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
 
     // POST function
     RESTcreateRecipe(payload) {
-      if (process.env.name === "Development") {
-        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/`;
-      } else
-      if (process.env.name === "Production") {
-        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/`;
-      }
+      const path = `${process.env.VUE_APP_ROOT_URL}/`;
       axios
         .post(path, payload)
         .then((response) => {
@@ -332,12 +307,7 @@ export default {
 
     // Update function
     RESTupdateRecipe(payload, recipeId) {
-      if (process.env.name === "Development") {
-        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
-      } else
-      if (process.env.name === "Production") {
-        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
-      }
+      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
       axios
         .put(path, payload)
         .then((response) => {
@@ -350,21 +320,12 @@ export default {
           setTimeout(() => {
             this.showMessage = false;
           }, 3000);
-        })
-        .catch((error) => {
-          console.error(error);
-          this.RESTgetRecipes();
         });
     },
 
     // Delete account
     RESTdeleteRecipe(recipeId) {
-      if (process.env.name === "Development") {
-        const path = `https://afernandez-assignment-be-dv.azurewebsites.net/${recipeId}`;
-      }
-      else if (process.env.name === "Production") {
-        const path = `https://afernandez-assignment-be-pr.azurewebsites.net/${recipeId}`;
-      }
+      const path = `${process.env.VUE_APP_ROOT_URL}/${recipeId}`;
       axios
         .delete(path)
         .then((response) => {
@@ -393,12 +354,12 @@ export default {
       this.createRecipeForm.name = "";
       this.createRecipeForm.ingredients = "";
       this.createRecipeForm.steps = "";
-      this.createRecipeForm.rating = "";
+      this.createRecipeForm.rating = 1;
       this.createRecipeForm.favorite = false;
       this.editRecipeForm.name = "";
       this.editRecipeForm.ingredients = "";
       this.editRecipeForm.steps = "";
-      this.editRecipeForm.rating = "";
+      this.editRecipeForm.rating = 1;
       this.editRecipeForm.favorite = false;
     },
 
