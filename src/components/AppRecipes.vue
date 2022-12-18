@@ -37,7 +37,17 @@
                 <td>{{ recipe.ingredients }}</td>
                 <td>{{ recipe.steps }}</td>
                 <td>{{ recipe.rating }}</td>
-                <td>{{ recipe.favorite }}</td>
+                <td>
+                  <b-form-checkbox
+                    id="form-favorite-input"
+                    type="checkbox"
+                    v-model="recipe.favorite"
+                    value=true
+                    unchecked-value=false
+                    required
+                  >
+                  </b-form-checkbox>
+                </td>
                 <td>
                   <div class="btn-group" role="group">
                     <button
@@ -122,9 +132,9 @@
           >
             <b-form-input
               id="form-rating-input"
-              type="text"
+              type="number"
               v-model="createRecipeForm.rating"
-              placeholder="1-5"
+              placeholder="Recipe Rating"
               required
             >
             </b-form-input>
@@ -207,7 +217,7 @@
           >
             <b-form-input
               id="form-edit-rating-input"
-              type="text"
+              type="number"
               v-model="editRecipeForm.rating"
               placeholder="Recipe Rating"
               required
@@ -356,13 +366,12 @@ export default {
       this.createRecipeForm.ingredients = "";
       this.createRecipeForm.steps = "";
       this.createRecipeForm.rating = "";
-      this.createRecipeForm.favorite;
-      this.editRecipeForm.id = "";
+      this.createRecipeForm.favorite = false;
       this.editRecipeForm.name = "";
       this.editRecipeForm.ingredients = "";
       this.editRecipeForm.steps = "";
       this.editRecipeForm.rating = "";
-      this.editRecipeForm.favorite;
+      this.editRecipeForm.favorite = false;
     },
 
     // Handle submit event for create recipe
